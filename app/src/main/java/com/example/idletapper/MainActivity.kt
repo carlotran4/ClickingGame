@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,10 +25,13 @@ class MainActivity : AppCompatActivity() {
 
         fun addMultiplier() {
             if(clickno>=clicksRequiredForUpgrade){
-                multiplier++
+                multiplier*=2
                 multiplierText.text = "Multiplier: $multiplier"
+                clickno-=clicksRequiredForUpgrade
+                clicksRequiredForUpgrade*=2
             }
 
+            else Toast.makeText(applicationContext, "$clicksRequiredForUpgrade clicks needed", Toast.LENGTH_SHORT).show()
         }
 
         clickButton.setOnClickListener {
