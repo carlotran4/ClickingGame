@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">IdleTapper</string>
+    <string name="welcome_to_click_game">Welcome to Click Game</string>
+    <string name="click">click</string>
+    <string name="multiplier_1">Multiplier: 1</string>
+    <string name="multiply">Multiply</string>
+</resources>
