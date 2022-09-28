@@ -42,8 +42,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/multiplierButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/click_button"
+        style="@style/TextStyle"
+        android:textColor="@color/white"
         android:text="@string/multiply"/>
     <TextView
         android:layout_width="wrap_content"
@@ -53,6 +54,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         style="@style/TextStyle"
-        android:text="@string/multiplier_1"/>
+        android:text="@string/multiplier_1"
+        />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextStyle"
+        android:text = "@string/buy_clickbot"
+        app:layout_constraintStart_toEndOf="@id/multiplierButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/click_button"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:id="@+id/clickbots_button"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/clickbots_text"
+        android:text="@string/number_of_clickbots_0"
+        app:layout_constraintBottom_toTopOf="@id/multiplier_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/TextStyle"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
