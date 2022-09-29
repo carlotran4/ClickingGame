@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                 addBot()
             }
 
-            //TODO: CLICK BOT FUNCTIONALITY
+            
             GlobalScope.launch {
                 while(true) {
                     add(clickbots)
