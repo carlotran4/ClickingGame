@@ -1,15 +1,17 @@
 package com.example.idletapper
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Looper.loop
+import android.util.Log
+import android.util.Log.WARN
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import org.w3c.dom.Text
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,14 +23,21 @@ class MainActivity : AppCompatActivity() {
         val multiplierText = findViewById<TextView>(R.id.multiplier_text)
         val clickbotsText = findViewById<TextView>(R.id.clickbots_text)
         val clickbotsButton = findViewById<Button>(R.id.clickbots_button)
-        var clickbots = 1
+        var clickbots = 0
         var multiplier = 1
         var clickno = 0
         var clicksRequiredForUpgrade = 50
 
 
-            fun add(noOfBots: Int = 1) {
+            suspend fun add(noOfBots: Int = 1) {
                 clickno += (multiplier * noOfBots)
+                withContext(Main) {
+                    clickNumberText.text = "Number of Clicks: $clickno"
+                }
+            }
+
+            fun normalAdd() {
+                clickno += (multiplier)
                 clickNumberText.text = "Number of Clicks: $clickno"
             }
 
@@ -60,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             clickButton.setOnClickListener {
-                add()
+                normalAdd()
             }
             multiplyButton.setOnClickListener {
                 addMultiplier()
@@ -69,8 +78,13 @@ class MainActivity : AppCompatActivity() {
                 addBot()
             }
 
-
-
+            //TODO: CLICK BOT FUNCTIONALITY
+            GlobalScope.launch {
+                while(true) {
+                    add(clickbots)
+                    delay(750)
+                }
+            }
 
     }
 }
