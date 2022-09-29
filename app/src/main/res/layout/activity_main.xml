@@ -32,6 +32,7 @@
         android:layout_height="wrap_content"
         tools:text = "0 clicks"
         style="@style/TextStyle"
+        android:textSize="80sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,12 +62,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/TextStyle"
-        android:text = "@string/buy_clickbot"
+        android:text = "@string/buy_bot"
         app:layout_constraintStart_toEndOf="@id/multiplierButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/click_button"
         android:textColor="@color/white"
-        android:textSize="20sp"
         android:id="@+id/clickbots_button"/>
 
     <TextView

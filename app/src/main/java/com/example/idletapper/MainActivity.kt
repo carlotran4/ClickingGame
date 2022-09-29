@@ -1,8 +1,6 @@
 package com.example.idletapper
 
 import android.os.Bundle
-import android.util.Log
-import android.util.Log.WARN
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -78,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                 addBot()
             }
 
-            
+
             GlobalScope.launch {
                 while(true) {
                     add(clickbots)
